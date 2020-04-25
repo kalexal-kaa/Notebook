@@ -1,4 +1,5 @@
 # Simple Notepad
+Simple notepad without encryption
 
 ![][logo]
 
