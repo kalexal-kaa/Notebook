@@ -1,5 +1,4 @@
-# Notebook
-Simple notepad
+# Simple Notepad
 
 ![][logo]
 
