@@ -98,12 +98,24 @@ public class FXMLNoteBookController implements Initializable {
     @FXML
     private void deleteNoteAction() throws IOException {
         File f=new File(path+separator+list.getSelectionModel().getSelectedItem());
-        if(f.delete()){
+        if(!f.exists()){
+            return;
+        }
+        final Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setResizable(true);
+        alert.getDialogPane().setPrefSize(500,140);
+        alert.setTitle(language.messageDelete(1));
+        alert.setHeaderText("");
+        alert.setContentText(language.messageDelete(2)+" "+f.getName()+" ?");
+        final Optional<ButtonType> resultAlert = alert.showAndWait();
+        if (resultAlert.get() == ButtonType.OK) {
+            if(f.delete()){
            showNotes();
            t.clear();
         }else{
-           toast.setMessage(language.messageDelete());
+           toast.setMessage(language.messageDelete(3));
         }
+      }
     }
     @FXML
     private void listItemAction(){

@@ -69,11 +69,26 @@ public class Language {
                                     return "";
         }
     }
-    String messageDelete(){
-        if(isRus())
-            return "Ошибка удаления";
-        else
-            return "Delete failed";
+    String messageDelete(int n){
+        switch(n){
+            case 1:
+                if(isRus())
+                    return "Удаление Заметки";
+                else
+                    return "Removing Notes";
+                case 2:
+                    if(isRus())
+                        return "Удалить заметку";
+                    else
+                        return "Delete note";
+                    case 3:
+                        if(isRus())
+                            return "Ошибка удаления";
+                        else 
+                            return "Delete failed";
+                        default:
+                            return "";
+        }
     }
     String forExitWindow(int n){
         switch(n){
